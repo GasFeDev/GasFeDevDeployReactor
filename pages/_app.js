@@ -57,12 +57,12 @@ function MyApp({ Component, pageProps }) {
 
   function authCheck(url) {
     // redirect to login page if accessing a private page and not logged in 
-    const publicPaths = ['/login'];
+    const publicPaths = ['/'];
     const path = url.split('?')[0];
     if (!userService.userValue && !publicPaths.includes(path)) {
         setAuthorized(false);
         router.push({
-            pathname: '/login',
+            pathname: '/',
             query: { returnUrl: router.asPath }
         });
     } else {
